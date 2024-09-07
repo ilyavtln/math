@@ -11,7 +11,87 @@
 }
 
 body {
+  text-align: justify !important;
+  line-height: 2 !important; /* Межстрочный интервал */
   background-color: #f8f8f8 !important;
+  font-size: 1rem !important;
+}
+
+.banner-wrapper__two {
+  grid-template-columns: 1fr;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.indent-left {
+  margin-left: 2em;
+}
+
+p {
+  text-indent: 2em;
+  margin-bottom: 0.5rem !important;
+}
+
+p > * {
+  text-indent: 0;
+}
+
+.text-indent-0 {
+  text-indent: 0 !important;
+}
+
+.spoiler-button {
+  border:2px #A9B8C2  solid;
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: white;
+  outline: none;
+  text-align: left;
+  width: fit-content;
+  transition: background-color 0.2s linear;
+  letter-spacing: 3px;
+  font-family: "Arial Narrow", sans-serif;
+  z-index: 1;
+  color: white;
+}
+.spoiler-button:hover {
+  cursor: pointer;
+  background: var(--dark-blue);
+  color: black;
+}
+
+.spoiler-button.active {
+  background: var(--dark-blue);
+  color: black;
+}
+
+details {
+  margin: -10px 0 0 25px; border: 1px solid #5C5C5C;
+}
+
+details > summary {
+  height: 25px;
+  line-height: 25px;
+  padding-left: 10px;
+  font-size: 16px;
+  color: #5C5C5C;
+  cursor: pointer;
+  border-left: 3px solid #5C5C5C
+}
+
+.float-r {
+  float: right;
+}
+
+mjx-math {
+  white-space: normal !important;
+}
+
+ol > li {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .em-wide {
