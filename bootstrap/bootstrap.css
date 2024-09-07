@@ -6878,7 +6878,7 @@ textarea.form-control-lg {
 
 .text-bg-dark {
   color: #fff !important;
-  background-color: RGBA(var(--bs-dark-rgb), var(--bs-bg-opacity, 1)) !important;
+  background-color: #5f4a8b !important;
 }
 
 .link-primary {
@@ -12052,6 +12052,10 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+
+.bg-dark {
+  background-color: #6766aa !important;
 }
 
 /*# sourceMappingURL=bootstrap.css.map */

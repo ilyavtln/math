@@ -26,6 +26,10 @@ body {
 }
 
 .indent-left {
+  text-indent: 2em;
+}
+
+.ml-indent {
   margin-left: 2em;
 }
 
@@ -43,6 +47,7 @@ p > * {
 }
 
 .spoiler-button {
+  border-radius: 0.5rem;
   border:2px #A9B8C2  solid;
   display: inline-block;
   padding: 5px 10px;
