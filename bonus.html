@@ -28,6 +28,15 @@
       if (d.head) d.head.appendChild(s);
     })(document, window, 'Chatra');
   </script>
+  <style>
+    .modal-backdrop {
+      z-index: 999;
+    }
+
+    .modal {
+      z-index: 1000;
+    }
+  </style>
 </head>
 
 <body>
@@ -54,12 +63,10 @@
               </div>
               <div class="modal-body">
                 <ol>
-                  <li>Рекомендуется <strong>читать</strong> сайт на компьютере</li>
-                  <li>Рекомендуемый масштаб страницы: 100-120%</li>
-                  <li>Для лучшего усвоения информации сначала нужно прочитать полностью минимальный уровень, а потом средний</li>
-                  <li>Синий текст, подчеркнутый внизу, означает, что при наведении на него, можно прочитать скрытую информацию</li>
-                  <li>При прочтении примеров рекомендуется попробовать решить их самостоятельно и сравнить с ответом</li>
-                  <li>При наличии предложений по улучшению сайта писать на почту <strong><a href="mailto:pm13.vatlin@gmail.com">pm13.vatlin@gmail.com</a></strong></li>
+                  <li>Рекомендуется <strong>играть</strong> сайт на компьютере</li>
+                  <li>Управление через стрелки</li>
+                  <li>Если появляется скролл, уменьшите размер окна через ctrl + scroll</li>
+                  <li>Учите функан</li>
                 </ol>
               </div>
             </div>
@@ -224,25 +231,11 @@
   </div>
 </nav>
 
-<section class="d-none d-md-block">
-  <div class="container rounded-4 overflow-hidden">
-    <div class="p-3 p-lg-4">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb my-0">
-          <li class="breadcrumb-item"><a href="index.html">Главная</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Бонус</li>
-        </ol>
-      </nav>
-    </div>
-  </div>
-</section>
-
-<section class="page-section mt-3 mt-md-0 d-none d-lg-block">
+<section class="page-section mt-3 mt-md-1 d-none d-lg-block">
   <div class="container bg-white rounded-4 overflow-hidden">
-    <div class="bg-dark">
-      <canvas style="border: 1px solid white; max-height: 100vh" width="320" height="640" id="game"></canvas>
-      <!-- добавляем область для вывода информации о текущей игре -->
-      <canvas style="border: 1px solid white" width="320" height="100" id="score"></canvas>
+    <div class="bg-black">
+      <canvas style="border: 1px solid white;" width="320" height="640" id="game"></canvas>
+      <canvas style="border: 1px solid white" width="420" height="100" id="score"></canvas>
     </div>
   </div>
 </section>
