@@ -1,0 +1,139 @@
+.my-tooltip-bottom {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 1px dotted #000000;
+}
+
+.my-tooltip-bottom > div {
+  visibility: hidden;
+  font-weight: normal;
+  white-space: normal;
+  width: 500px;
+  background-color: #cbdff4;
+  color: black;
+  text-align: left;
+  padding: 0.5rem;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 1;
+  top: 100%; /* Расположение окна снизу текста */
+  left: 0;
+  margin-top: 10px; /* Отступ сверху, чтобы отделить тултип от текста */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.my-tooltip-bottom:hover > div {
+  @media (min-width: 1024px) {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.my-tooltip-bottom-left {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 1px dotted #000000;
+}
+
+.my-tooltip-bottom-left > div {
+  visibility: hidden;
+  font-weight: normal;
+  white-space: normal;
+  width: 500px;
+  background-color: #cbdff4;
+  color: black;
+  text-align: left;
+  padding: 0.5rem;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 1;
+  top: 100%; /* Расположение окна снизу текста */
+  right: 50%;
+  margin-top: 10px; /* Отступ сверху, чтобы отделить тултип от текста */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.my-tooltip-bottom-left:hover > div {
+  @media (min-width: 1024px) {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.my-tooltip-top {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 1px dotted #000000;
+}
+
+.my-tooltip-top > div {
+  visibility: hidden;
+  white-space: normal;
+  font-weight: normal;
+  width: 500px;
+  background-color: #cbdff4;
+  color: black;
+  text-align: left;
+  padding: 0.5rem;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%; /* Расположение окна сверху текста */
+  left: 0;
+  margin-bottom: 10px; /* Отступ снизу, чтобы отделить тултип от текста */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.my-tooltip-top:hover > div {
+  @media (min-width: 1024px) {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.my-tooltip-top-left {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 1px dotted #000000;
+}
+
+.my-tooltip-top-left > div {
+  visibility: hidden;
+  white-space: normal;
+  font-weight: normal;
+  width: 500px;
+  background-color: #cbdff4;
+  color: black;
+  text-align: left;
+  padding: 0.5rem;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 100%; /* Расположение окна сверху текста */
+  right: 50%;
+  margin-bottom: 10px; /* Отступ снизу, чтобы отделить тултип от текста */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.my-tooltip-top-left:hover > div {
+  @media (min-width: 1024px) {
+    visibility: visible;
+    opacity: 1;
+  }
+}
