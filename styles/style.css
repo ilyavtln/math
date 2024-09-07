@@ -25,6 +25,19 @@ body {
   }
 }
 
+.banner-wrapper__three {
+  grid-template-columns: 1fr;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
 .indent-left {
   text-indent: 2em;
 }
