@@ -237,7 +237,7 @@
   <div class="container bg-white rounded-4 overflow-hidden">
     <div class="bg-black">
       <canvas style="border: 1px solid white;" width="320" height="640" id="game"></canvas>
-      <canvas style="border: 1px solid white" width="420" height="100" id="score"></canvas>
+      <canvas style="border: 1px solid white" width="640" height="640" id="score"></canvas>
     </div>
   </div>
 </section>
@@ -351,16 +351,12 @@
   let recordName = '';
 
   // спрашиваем имя игрока при запуске
-  name = "Любитель математики";
+  name = "";
 
-  // Узнаём размер хранилища
-  var Storage_size = localStorage.length;
-  // Если в хранилище уже что-то есть…
-  if (Storage_size > 0) {
-    // …то достаём оттуда значение рекорда и имя чемпиона
-    record = localStorage.record;
-    recordName = localStorage.recordName;
-  }
+  loadRecordData();  // Загрузка данных о рекорде
+
+  record = localStorage.record || 0;
+  recordName = localStorage.recordName || 'Любитель математики';
 
   // Функция возвращает случайное число в заданном диапазоне
   // https://stackoverflow.com/a/1527820/2124254
@@ -500,22 +496,67 @@
 
   // показываем надпись Game Over
   function showGameOver() {
-    // прекращаем всю анимацию игры
-    cancelAnimationFrame(rAF);
-    // ставим флаг окончания
-    gameOver = true;
-    // рисуем чёрный прямоугольник посередине поля
-    context.fillStyle = 'black';
-    context.globalAlpha = 0.75;
-    context.fillRect(0, canvas.height / 2 - 30, canvas.width, 60);
-    // пишем надпись белым моноширинным шрифтом по центру
-    context.globalAlpha = 1;
-    context.fillStyle = 'white';
-    context.font = '36px monospace';
-    context.textAlign = 'center';
-    context.textBaseline = 'middle';
-    context.fillText('GAME OVER!', canvas.width / 2, canvas.height / 2);
+      // прекращаем всю анимацию игры
+      cancelAnimationFrame(rAF);
+      // ставим флаг окончания
+      gameOver = true;
+
+      // рисуем чёрный прямоугольник посередине поля
+      context.fillStyle = 'black';
+      context.globalAlpha = 0.75;
+      context.fillRect(0, canvas.height / 2 - 30, canvas.width, 60);
+
+      // пишем надпись белым моноширинным шрифтом по центру
+      context.globalAlpha = 1;
+      context.fillStyle = 'white';
+      context.font = '36px monospace';
+      context.textAlign = 'center';
+      context.textBaseline = 'middle';
+      context.fillText('GAME OVER!', canvas.width / 2, canvas.height / 2);
+
+      // спрашиваем имя игрока
+      let playerName = prompt("Введите ваш никнейм:", name);
+
+      if (playerName !== null) {
+          sendDataToGoogleSheet(playerName, score);
+      }
   }
+
+  function sendDataToGoogleSheet(name, score) {
+      const url = "https://script.google.com/macros/s/AKfycbwNdWYToLSjbkPEcjh2drkPSUXZElrSJR7HrGKnd3O-Nax7cA7rQNFLKNbsZ6bbWBDp/exec";
+
+      const data = {
+          name: name,
+          score: score
+      };
+
+      fetch(url, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+      })
+          .then(response => console.log("Success:", response))
+          .catch(error => console.error("Error:", error));
+  }
+
+  function loadRecordData() {
+      const url = "https://script.google.com/macros/s/AKfycbwkqh8fnTikCCxGbOrmeyh0NAdIF9yPxS7UWkMsMk3aULQYk-kSUGn38hgVs29lCgm_/exec"; // Замените на ваш URL
+
+      fetch(url)
+          .then(response => response.json())
+          .then(data => {
+              record = data.score;
+              recordName = data.name;
+              localStorage.record = record;
+              localStorage.recordName = recordName;
+              showScore(); // Обновляем отображение статистики
+          })
+          .catch(error => console.error("Error fetching record data:", error));
+  }
+
 
   function showScore() {
     contextScore.clearRect(0,0,canvasScore.width,canvasScore.height);
@@ -526,7 +567,7 @@
     contextScore.fillText('Очков:   ' + score, 15, 50);
     contextScore.fillText('Чемпион: ' + recordName, 160, 20);
     contextScore.fillText('Рекорд:  ' + record, 160, 50);
-
+    console.log("ilya", score)
   }
 
   // главный цикл игры
